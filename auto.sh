@@ -1,3 +1,16 @@
 #!/bin/bash
 
-DOMAIN="xyz.surge.sh" npm run deploy
+GITHUB_REF=$1
+
+PULL_REQUEST_NUMBER=$(node ./extract.js $GITHUB_REF)
+
+if [[ $PULL_REQUEST_NUMBER = "FAILURE" ]]
+then
+    echo "FAILURE"
+    exit 1;
+else
+    GENERATE_LINK="experiment-${PULL_REQUESST_NUMBER}.surge.sh"
+
+    DOMAIN=GENERATE_LINK npm run deploy
+    echo $GENERATE_LINK
+fi

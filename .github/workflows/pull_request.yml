@@ -1,11 +1,13 @@
-name: Try to get pull request number.
+name: DEPLOY PULL REQUEST.
 
 on: [pull_request]
 
 jobs:
-  pr-no:
-    name: Get PR number.
+  deploy:
+    name: Deploy.
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
-      - run: echo ${GITHUB_REF}
+      - uses: actions/setup-node@v1
+      - run: npm install surge
+      - run: bash ./auto.sh ${GITHUB_REF}
