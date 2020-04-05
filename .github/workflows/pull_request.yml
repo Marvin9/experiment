@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
       - run: git fetch origin ${GITHUB_REF}
       - run: git checkout FETCH_HEAD
       - run: node verify ${{ github.event.action }} ${{ github.event.comment.user.login }} ${{ github.event.comment.body }}
