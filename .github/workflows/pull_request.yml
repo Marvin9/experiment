@@ -15,7 +15,7 @@
 name: DEPLOY PULL REQUEST
 
 on:
-  pull_request_comment:
+  issue_comment:
     types: [created]
 
 jobs:
