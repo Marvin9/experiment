@@ -15,7 +15,7 @@
 name: DEPLOY PULL REQUEST
 
 on:
-  issue_comment:
+  pull_request_comment:
     types: [created]
 
 jobs:
@@ -23,4 +23,4 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${GITHUB_REF}
+      - run: echo ${{ github.event.comment.user.login }}
