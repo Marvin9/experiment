@@ -9,8 +9,11 @@ then
     echo "FAILURE"
     exit 1;
 else
-    GENERATE_LINK="experiment-${PULL_REQUESST_NUMBER}.surge.sh"
-    bash ./surge_login.sh $2 $3
-    DOMAIN=GENERATE_LINK npm run deploy
+    GENERATE_LINK="experiment-${PULL_REQUEST_NUMBER}.surge.sh"
+    echo $2 > email_pass
+    echo $3 >> email_pass
+    npm run login < email_pass
+    DOMAIN=$GENERATE_LINK npm run deploy
+    rm email_pass
     echo $GENERATE_LINK
 fi

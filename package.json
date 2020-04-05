@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "login": "surge login",
     "deploy": "surge ./dist $DOMAIN"
   },
   "keywords": [],
