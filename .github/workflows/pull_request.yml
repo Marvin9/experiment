@@ -23,9 +23,9 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
       - run: node verify ${{ github.event.action }} ${{ github.event.comment.user.login }} ${{ github.event.comment.body }}
+      - uses: gr2m/git-checkout-pull-request-action@master
+      - uses: actions/setup-node@v1
       - run: npm install surge @actions/github
       - run: bash ./auto.sh ${{ github.event.issue.pull_request.url }} ${{ secrets.SURGE_TOKEN }}
       - run: node ./spawn_comment.js ${{ secrets.GITHUB_TOKEN }} ${{ github.event.issue.pull_request.url }}
