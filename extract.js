@@ -1,6 +1,6 @@
 const GITHUB_REF = process.argv[2];
 
-const PULL_REGEX = /\/[0-9]+\//i;
+const PULL_REGEX = /\/[0-9]+/i;
 
 if (PULL_REGEX.test(GITHUB_REF)) {
     const [PULL_REQUEST_NUMBER] = PULL_REGEX.exec(GITHUB_REF);

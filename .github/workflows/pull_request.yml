@@ -23,4 +23,8 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.comment.user.login }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: node verify ${{ github.event.action }} ${{ github.event.comment.user.login }} ${{ github.event.comment.body }}
+      - run: npm install surge
+      - run: bash ./auto.sh ${{ github.event.issue.pull_request.url }} ${{ secrets.SURGE_TOKEN }}
