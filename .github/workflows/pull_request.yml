@@ -25,8 +25,9 @@ jobs:
     steps:
       - uses: actions/setup-node@v1
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.issue.pull_request.head.sha }}
+      - run: |
+            git fetch origin +${GITHUB_REF}
+            git checkout FETCH_HEAD
       - run: node verify ${{ github.event.action }} ${{ github.event.comment.user.login }} ${{ github.event.comment.body }}
       - run: npm install surge @actions/github
       - run: bash ./auto.sh ${{ github.event.issue.pull_request.url }} ${{ secrets.SURGE_TOKEN }}
