@@ -1,13 +1,26 @@
-name: DEPLOY PULL REQUEST.
+# name: DEPLOY PULL REQUEST.
 
-on: [pull_request]
+# on: [pull_request]
+
+# jobs:
+#   deploy:
+#     name: Deploy.
+#     runs-on: ubuntu-latest
+#     steps: 
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v1
+#       - run: npm install surge
+#       - run: bash ./auto.sh ${GITHUB_REF} ${{ secrets.SURGE_TOKEN }}
+
+name: DEPLOY PULL REQUEST
+
+on:
+  issue_comment:
+    types: [created]
 
 jobs:
   deploy:
-    name: Deploy.
+    name: Test
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install surge
-      - run: bash ./auto.sh ${GITHUB_REF} ${{ secrets.SURGE_TOKEN }}
+    steps:
+      - run: echo ${GITHUB_REF}
