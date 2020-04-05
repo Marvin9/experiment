@@ -10,7 +10,7 @@ then
     exit 1;
 else
     GENERATE_LINK="experiment-${PULL_REQUESST_NUMBER}.surge.sh"
-
+    bash ./surge_login.sh $2 $3
     DOMAIN=GENERATE_LINK npm run deploy
     echo $GENERATE_LINK
 fi
