@@ -12,8 +12,7 @@ else
     GENERATE_LINK="experiment-${PULL_REQUEST_NUMBER}.surge.sh"
     echo $2 > email_pass
     echo $3 >> email_pass
-    npm run login < email_pass
-    DOMAIN=$GENERATE_LINK npm run deploy
+    DOMAIN=$GENERATE_LINK npm run deploy < email_pass
     rm email_pass
     echo $GENERATE_LINK
 fi
