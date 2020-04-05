@@ -8,6 +8,6 @@ const github = require('@actions/github');
 const octokit = new github.GitHub(token);
 const comment = octokit.issues.createComment({
     ...github.context.repo,
-    issue_number: PULL_REQUEST_NUMBER,
+    issue_number: PULL_REQUEST_NUMBER.slice(1),
     body: `http://experiment-${PULL_REQUEST_NUMBER}.surge.sh`,
 });
