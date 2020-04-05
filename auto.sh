@@ -12,6 +12,4 @@ else
     GENERATE_LINK="experiment-${PULL_REQUEST_NUMBER}.surge.sh"
 
     ./node_modules/.bin/surge ./dist $GENERATE_LINK --token $2
-    
-    echo $GENERATE_LINK
 fi

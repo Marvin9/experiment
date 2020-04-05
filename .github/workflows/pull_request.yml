@@ -28,3 +28,4 @@ jobs:
       - run: node verify ${{ github.event.action }} ${{ github.event.comment.user.login }} ${{ github.event.comment.body }}
       - run: npm install surge
       - run: bash ./auto.sh ${{ github.event.issue.pull_request.url }} ${{ secrets.SURGE_TOKEN }}
+      - run: node ./spawn_comment.js ${{ secrets.GITHUB_TOKEN }} ${{ github.event.issue.pull_request.url }}
