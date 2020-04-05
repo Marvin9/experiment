@@ -1,0 +1,15 @@
+{
+  "name": "experimental",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "surge ./dist $DOMAIN"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "surge": "^0.21.3"
+  }
+}

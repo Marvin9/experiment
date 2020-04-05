@@ -1,0 +1,11 @@
+name: Try to get pull request number.
+
+on: [pull_request]
+
+jobs:
+  pr-no:
+    name: Get PR number.
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - run: echo ${GITHUB_REF}
