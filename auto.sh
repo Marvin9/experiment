@@ -9,11 +9,8 @@ then
     echo "FAILURE"
     exit 1;
 else
-    GENERATE_LINK="experiment-${PULL_REQUEST_NUMBER}.surge.sh"
-    echo $2 > email_pass
-    echo $3 >> email_pass
 
-    ./node_modules/.bin/surge ./dist $GENERATE_LINK < email_pass
-    rm email_pass
+    ./node_modules/.bin/surge ./dist $GENERATE_LINK --token $2
+    
     echo $GENERATE_LINK
 fi

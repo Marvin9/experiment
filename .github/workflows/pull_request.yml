@@ -9,6 +9,5 @@ jobs:
     steps: 
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: lafernando/github-action-bash/@master
       - run: npm install surge
-      - run: bash ./auto.sh ${GITHUB_REF} ${{ secrets.EMAIL }} ${{ secrets.PASSWORD }}
+      - run: bash ./auto.sh ${GITHUB_REF} ${{ secrets.SURGE_TOKEN }}
