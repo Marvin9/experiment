@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
       - uses: gr2m/git-checkout-pull-request-action@master
       - run: node verify ${{ github.event.action }} ${{ github.event.comment.user.login }} ${{ github.event.comment.body }}
       - run: npm install surge @actions/github
