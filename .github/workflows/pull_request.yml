@@ -10,5 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm install surge
-      - run: bash ./surge_login.sh ${{ secret.EMAIL }} ${{ secret.PASSWORD }}
+      - run: bash ./surge_login.sh ${{ secrets.EMAIL }} ${{ secrets.PASSWORD }}
       - run: bash ./auto.sh ${GITHUB_REF}
