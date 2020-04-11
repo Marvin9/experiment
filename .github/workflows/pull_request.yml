@@ -27,6 +27,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
             git fetch origin +refs/pull/${{ github.event.issue.number }}/merge
+            git stash
             git checkout FETCH_HEAD
       - run: node verify ${{ github.event.action }} ${{ github.event.comment.user.login }} ${{ github.event.comment.body }}
       - run: npm install surge @actions/github
